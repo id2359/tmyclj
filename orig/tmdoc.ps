@@ -1,0 +1,2141 @@
+%!PS-Adobe-1.0
+%%Title: TMDOC.MSS.1
+%%DocumentFonts: (atend)
+%%Creator: SCHMIDT and Scribe 5(1500)
+%%CreationDate: 6 February 1989 22:42
+%%Pages: (atend)
+%%EndComments
+% PostScript Prelude for Scribe.
+/BS {/SV save def 0.0 792.0 translate .01 -.01 scale} bind def
+/ES {showpage SV restore} bind def
+/SC {setrgbcolor} bind def
+/FMTX matrix def
+/RDF {WFT SLT 0.0 eq 
+  {SSZ 0.0 0.0 SSZ neg 0.0 0.0 FMTX astore}
+  {SSZ 0.0 SLT sin SLT cos div SSZ mul SSZ neg 0.0 0.0 FMTX astore}
+  ifelse makefont setfont} bind def
+/SLT 0.0 def
+/SI { /SLT exch cvr def RDF} bind def
+/WFT /Courier findfont def
+/SF { /WFT exch findfont def RDF} bind def
+/SSZ 1000.0 def
+/SS { /SSZ exch 100.0 mul def RDF} bind def
+/AF { /WFT exch findfont def /SSZ exch 100.0 mul def RDF} bind def
+/MT /moveto load def
+/XM {currentpoint exch pop moveto} bind def
+/UL {gsave newpath moveto dup 2.0 div 0.0 exch rmoveto
+   setlinewidth 0.0 rlineto stroke grestore} bind def
+/LH {gsave newpath moveto setlinewidth
+   0.0 rlineto
+   gsave stroke grestore} bind def
+/LV {gsave newpath moveto setlinewidth
+   0.0 exch rlineto
+   gsave stroke grestore} bind def
+/BX {gsave newpath moveto setlinewidth
+   exch
+   dup 0.0 rlineto
+   exch 0.0 exch neg rlineto
+   neg 0.0 rlineto
+   closepath
+   gsave stroke grestore} bind def
+/BX1 {grestore} bind def
+/BX2 {setlinewidth 1 setgray stroke grestore} bind def
+/PB {/PV save def translate 100.0 -100.0 scale pop} bind def
+/PE {PV restore} bind def
+/SH /show load def
+/MX {exch show 0.0 rmoveto} bind def
+/W {0 32 4 -1 roll widthshow} bind def
+/WX {0 32 5 -1 roll widthshow 0.0 rmoveto} bind def
+%%EndProlog
+%%Page: 1 1 
+BS
+0 SI
+13 /Helvetica-Bold AF
+21860 8148 MT
+(TMYCIN Expert System Tool)SH
+10 /Helvetica AF
+26070 13795 MT
+(Gordon S. Novak Jr.)SH
+23736 14938 MT
+(Computer Science Department)SH
+24264 16081 MT
+(University of Texas at Austin)SH
+26764 17224 MT
+(Austin, TX 78712)SH
+12 /Helvetica-Bold AF
+7200 24093 MT
+(1. Introduction)SH
+10 /Helvetica AF
+8312 25519 MT
+(TMYCIN \050``Tiny EMYCIN''\051 is)
+5 W( a simple expert system tool patterned after the EMYCIN tool developed at)4 W
+7200 26945 MT
+(Stanford [2] [1].)
+SH( TMYCIN)
+590 W( does not attempt to provide all of the features of EMYCIN; it is intended to)157 W
+7200 28371 MT
+(provide some of the most commonly used features in a package that is small and)
+93 W( simple.  The internal)92 W
+7200 29797 MT
+(implementation of TMYCIN has been written from scratch and is therefore different from that of EMYCIN.)SH
+12 /Helvetica-Bold AF
+7200 33552 MT
+(2. Data)SH
+10 /Helvetica AF
+8312 34978 MT
+(Data about a particular case is stored in a record structure called a)170 W
+/Helvetica-Oblique SF
+40257 XM
+(context)SH
+/Helvetica SF
+(; the current context)
+170 W( is)171 W
+7200 36404 MT
+(referenced in rules by the global variable)SH
+/Courier SF
+25486 XM
+(cntxt)SH
+/Helvetica SF
+(. TMYCIN)
+278 W( allows only a single level of context.)SH
+11 /Helvetica-Bold AF
+7200 40086 MT
+(2.1. Context Description)SH
+10 /Helvetica AF
+8312 41512 MT
+(The data in a context are)
+30 W( described in a)29 W
+/Helvetica-Oblique SF
+26421 XM
+(context description)29 W
+/Helvetica SF
+35094 XM
+(or)SH
+/Helvetica-Oblique SF
+36290 XM
+(class)SH
+/Helvetica SF
+(, which is defined to the system by)29 W
+7200 42938 MT
+(a call to)SH
+/Courier SF
+10924 XM
+(DEFCONTEXT)SH
+/Helvetica SF
+(:)SH
+/Courier-Bold SF
+9600 44743 MT
+(\050defcontext <context-name>)SH
+16800 45874 MT
+(<parameters>)SH
+16800 47005 MT
+(<initial-data>)SH
+16800 48136 MT
+(<goals>\051)SH
+/Helvetica SF
+7200 49717 MT
+(where)SH
+/Courier SF
+10440 XM
+(<context-name>)SH
+/Helvetica SF
+19357 XM
+(is the name of the context \050usually the name of the kind of)
+239 W( object being)240 W
+7200 51143 MT
+(identified or)
+205 W( diagnosed, e.g.,)204 W
+/Courier SF
+20858 XM
+(ROCK)SH
+/Helvetica SF
+23740 XM
+(or)SH
+/Courier SF
+25111 XM
+(PATIENT)SH
+/Helvetica SF
+(\051,)SH
+/Courier SF
+30404 XM
+(<parameters>)SH
+/Helvetica SF
+38086 XM
+(is a list of parameter descriptions,)204 W
+/Courier SF
+7200 52569 MT
+(<initial-data>)SH
+/Helvetica SF
+16053 XM
+(is a list of the parameters whose)
+175 W( values are to be asked for at the start of every)176 W
+7200 53995 MT
+(consultation, and)322 W
+/Courier SF
+15681 XM
+(<goals>)SH
+/Helvetica SF
+20480 XM
+(is a list of parameters whose values are sought as the result of the)321 W
+7200 55421 MT
+(consultation. An)
+278 W( example of a call to)SH
+/Courier SF
+23764 XM
+(DEFCONTEXT)SH
+/Helvetica SF
+30042 XM
+(is shown below.)SH
+/Courier-Bold SF
+9600 57226 MT
+(\050defcontext 'rock)
+SH( ;)
+15600 W( Context Name)SH
+16800 58357 MT
+('\050\050color \050brown black white\051\051)
+SH( ;)
+1200 W( Parameters)SH
+18000 59488 MT
+(\050hardness posnumb\051)SH
+18000 60619 MT
+(\050environment \050igneous metamorphic sedimentary\051)SH
+19800 61750 MT
+(\050"What is the type of geologic environment")SH
+20400 62881 MT
+("in which the specimen was found?"\051\051)SH
+18000 64012 MT
+(\050identity atom\051)SH
+18000 65143 MT
+(\050pretty nil\051\051)
+SH( ;)
+10200 W( Yes/No parm)SH
+16800 66274 MT
+('\050color\051 ;)
+14400 W( Initial data)SH
+16800 67405 MT
+('\050identity\051\051 ;)
+12000 W( Goals)SH
+ES
+%%Page: 2 2 
+BS
+0 SI
+10 /Helvetica AF
+30322 4329 MT
+(2)SH
+8312 7929 MT
+(Each)SH
+/Courier SF
+10869 XM
+(<parameter>)SH
+/Helvetica SF
+17747 XM
+(description is a list of three items:)SH
+/Courier-Bold SF
+9600 9734 MT
+(\050<parameter-name> <type> <prompt>\051)SH
+/Helvetica SF
+9424 12446 MT
+(1.)SH
+10536 XM
+(The)SH
+/Courier SF
+12537 XM
+(<parameter-name>)SH
+/Helvetica SF
+22415 XM
+(is always a single symbol, e.g.)SH
+/Courier SF
+36142 XM
+(COLOR)SH
+/Helvetica SF
+(.)SH
+9424 14261 MT
+(2.)SH
+10536 XM
+(The)SH
+/Courier SF
+12537 XM
+(<type>)SH
+/Helvetica SF
+16415 XM
+(of the parameter may be:)SH
+12760 15662 MT
+(a.)SH
+13872 XM
+(A type as used in EMYCIN, e.g.)81 W
+/Courier SF
+28779 XM
+(POSNUMB)SH
+/Helvetica SF
+33338 XM
+(\050positive number\051.  This is not)
+81 W( checked,)82 W
+13872 16805 MT
+(but is shown to the user when prompting for user input.)SH
+12760 18620 MT
+(b.)SH
+13872 XM
+(A list of possible values, e.g.)48 W
+/Courier SF
+27055 XM
+(\050BROWN BLACK WHITE\051)48 W
+/Helvetica SF
+(. This)
+373 W( is not checked, but is)47 W
+13872 19763 MT
+(shown to the user when prompting for user input.)SH
+12816 21578 MT
+(c.)SH
+/Courier SF
+13872 XM
+(NIL)SH
+/Helvetica SF
+(, which)
+194 W( indicates a Yes/No parameter.  This value is examined by the input)195 W
+13872 22721 MT
+(routine, which will convert an input of)46 W
+/Courier SF
+30812 XM
+(NO)SH
+/Helvetica SF
+32336 XM
+(to)SH
+/Courier SF
+33494 XM
+(\050YES -1.0\051)SH
+/Helvetica SF
+39818 XM
+(if the type is)46 W
+/Courier SF
+45616 XM
+(NIL)SH
+/Helvetica SF
+(. A)
+368 W( type)45 W
+13872 23864 MT
+(of)SH
+/Courier SF
+15042 XM
+(NIL)SH
+/Helvetica SF
+17178 XM
+(will also affect the way in which the parameter is described when prompting)58 W
+13872 25007 MT
+(for input.)SH
+9424 26822 MT
+(3.)SH
+10536 XM
+(The)SH
+/Courier SF
+12546 XM
+(<prompt>)SH
+/Helvetica SF
+17633 XM
+(\050optional\051 may be either a string or a list of strings.)
+9 W( The)
+295 W( prompt string\050s\051 are)8 W
+10536 27965 MT
+(shown to the user when prompting)
+30 W( for input, or in response to a ``?'' input; the purpose is to)31 W
+10536 29108 MT
+(explain in more detail the)
+197 W( input that is being asked for \050including, for example, units of)196 W
+10536 30251 MT
+(measurement\051.)SH
+11 /Helvetica-Bold AF
+7200 33933 MT
+(2.2. Internal Data Storage)SH
+10 /Helvetica AF
+8312 35359 MT
+(A context in TMYCIN is implemented as a)
+143 W( Lisp symbol \050a)144 W
+/Courier SF
+35397 XM
+(GENSYM)SH
+/Helvetica SF
+39419 XM
+(symbol formed from the context)144 W
+7200 36785 MT
+(name, e.g.)19 W
+/Courier SF
+12241 XM
+(ROCK37)SH
+/Helvetica SF
+(\051 with the)
+19 W( data values stored on its property list.  A pointer to the context description is)18 W
+7200 38211 MT
+(stored under the property name)SH
+/Courier SF
+21485 XM
+(ISA)SH
+/Helvetica SF
+(.)SH
+8312 40778 MT
+(Each parameter value is stored as a list of values and certainty factors, e.g.)SH
+/Courier-Bold SF
+9600 42583 MT
+(COLOR \050\050RED 0.4\051\050WHITE 0.3\051\050BLUE 0.1\051\051)SH
+/Helvetica SF
+7200 45295 MT
+(where)SH
+/Courier SF
+10204 XM
+(COLOR)SH
+/Helvetica SF
+13485 XM
+(is the parameter/property name and the values are stored as a list under that)
+3 W( property.  The)4 W
+7200 46721 MT
+(values are sorted by certainty factor \050CF\051, with the value having the highest CF first.)SH
+12 /Helvetica-Bold AF
+7200 50476 MT
+(3. Rules)SH
+11 SS 
+7200 54158 MT
+(3.1. Rule Format)SH
+10 /Helvetica AF
+8312 55584 MT
+(Rules are defined to the system using the function)6 W
+/Courier SF
+30822 XM
+(DEFRULES)SH
+/Helvetica SF
+(, which)
+6 W( takes one or more unquoted rules)5 W
+7200 57010 MT
+(as input.  Each rule has the format:)SH
+/Courier-Bold SF
+9600 58815 MT
+(\050<rulename> <premises>)SH
+16800 59946 MT
+(<conclusion>\051)SH
+/Helvetica SF
+7200 62658 MT
+(Usually the)81 W
+/Courier SF
+12586 XM
+(<premises>)SH
+/Helvetica SF
+18945 XM
+(is a conjunction of conditions grouped within a call to the)
+81 W( function)82 W
+/Courier SF
+48934 XM
+($AND)SH
+/Helvetica SF
+51694 XM
+(, and)82 W
+7200 64084 MT
+(the conclusion is a call to the function)288 W
+/Courier SF
+26346 XM
+(CONCLUDE)SH
+/Helvetica SF
+31712 XM
+(\050the function)288 W
+/Courier SF
+38069 XM
+(DO-ALL)SH
+/Helvetica SF
+42235 XM
+(can be)
+288 W( used for multiple)287 W
+7200 65510 MT
+(conclusions or for actions in addition to calling)152 W
+/Courier SF
+29037 XM
+(CONCLUDE)SH
+/Helvetica SF
+(\051. An)
+584 W( example of a rule definition is shown)153 W
+7200 66936 MT
+(below.)SH
+ES
+%%Page: 3 3 
+BS
+0 SI
+10 /Helvetica AF
+30322 4329 MT
+(3)SH
+/Courier-Bold SF
+9600 7874 MT
+(\050defrules)SH
+9600 10136 MT
+(\050rule101 \050$and \050same cntxt color black\051)SH
+18600 11267 MT
+(\050notsame cntxt pretty yes\051)SH
+18600 12398 MT
+(\050$or \050between* \050val1 cntxt hardness\051 3 5\051)SH
+21600 13529 MT
+(\050same cntxt environment sedimentary\051\051\051)SH
+15000 14660 MT
+(\050conclude cntxt identity coal tally 400\051\051)SH
+9600 16922 MT
+(\051)SH
+11 /Helvetica-Bold AF
+7200 21735 MT
+(3.2. $AND and $OR)SH
+10 /Helvetica AF
+8312 23161 MT
+(The condition part of a rule is)
+4 W( usually formed from tests of parameter values, combined by the functions)3 W
+/Courier SF
+7200 24587 MT
+($AND)SH
+/Helvetica SF
+9949 XM
+(and)SH
+/Courier SF
+11966 XM
+($OR)SH
+/Helvetica SF
+(.)SH
+/Courier SF
+14742 XM
+($AND)SH
+/Helvetica SF
+17491 XM
+(evaluates each of its clauses in order.  If any clause returns)71 W
+/Courier SF
+44911 XM
+(NIL)SH
+/Helvetica SF
+47060 XM
+(or returns a CF)72 W
+7200 26013 MT
+(\050)SH
+/Helvetica-Oblique SF
+(certainty factor)66 W
+/Helvetica SF
+(\051 value less than the .2)
+66 W( threshold,)65 W
+/Courier SF
+29625 XM
+($AND)SH
+/Helvetica SF
+32368 XM
+(immediately returns)65 W
+/Courier SF
+41500 XM
+(NIL)SH
+/Helvetica SF
+43643 XM
+(\050without evaluating any)65 W
+7200 27439 MT
+(other clauses\051; otherwise,)23 W
+/Courier SF
+18940 XM
+($AND)SH
+/Helvetica SF
+21641 XM
+(returns the minimum CF that any clause returned.)23 W
+/Courier SF
+44412 XM
+($OR)SH
+/Helvetica SF
+46513 XM
+(is ``true'' if any of)24 W
+7200 28865 MT
+(its clauses is ``true'';)26 W
+/Courier SF
+16417 XM
+($OR)SH
+/Helvetica SF
+18521 XM
+(returns the maximum CF)
+26 W( returned by any of its clauses.)25 W
+/Courier SF
+43919 XM
+($AND)SH
+/Helvetica SF
+46622 XM
+(and)SH
+/Courier SF
+48593 XM
+($OR)SH
+/Helvetica SF
+50696 XM
+(may be)25 W
+7200 30291 MT
+(nested.)SH
+8312 32858 MT
+(Before trying all of its)
+71 W( clauses,)72 W
+/Courier SF
+22301 XM
+($AND)SH
+/Helvetica SF
+25051 XM
+(does a ``prescan'' of the clauses to see if any of them is already)72 W
+7200 34284 MT
+(known to be false \050CF of)12 W
+/Courier SF
+18387 XM
+(NIL)SH
+/Helvetica SF
+20476 XM
+(or below the .2 threshold\051; if so,)11 W
+/Courier SF
+34782 XM
+($AND)SH
+/Helvetica SF
+37471 XM
+(returns)SH
+/Courier SF
+40872 XM
+(NIL)SH
+/Helvetica SF
+42961 XM
+(without evaluating any of)11 W
+7200 35710 MT
+(the other clauses.)SH
+11 /Helvetica-Bold AF
+7200 39392 MT
+(3.3. Testing Data Values)SH
+10 /Helvetica AF
+8312 40818 MT
+(Several functions are provided to test data values within rules.)
+101 W( These)
+481 W( differ in terms of the certainty)102 W
+7200 42244 MT
+(factor required to make)
+217 W( the condition ``true'' and in terms of the CF value returned.  Each of these)216 W
+7200 43670 MT
+(functions uses the global variable)SH
+/Courier SF
+22263 XM
+(CNTXT)SH
+/Helvetica SF
+(, which is a pointer to the current context.)SH
+/Symbol SF
+9242 45142 MT
+(\267)SH
+/Courier SF
+9980 XM
+(\050SAME CNTXT <parameter> <value>\051)153 W
+/Helvetica SF
+30070 XM
+(tests whether the specified parameter has the)153 W
+9980 46285 MT
+(specified value with CF)
+197 W( > .2)
+SH( ; the value returned is the CF of the parameter.  A Yes/No)196 W
+9980 47428 MT
+(parameter is tested for the value ``Yes'' with)SH
+/Courier SF
+29543 XM
+(\050SAME CNTXT <parameter> YES\051)SH
+/Helvetica SF
+(.)SH
+/Symbol SF
+9242 49243 MT
+(\267)SH
+/Courier SF
+9980 XM
+(\050NOTSAME CNTXT <parameter> <value>\051)93 W
+/Helvetica SF
+31630 XM
+(tests whether the specified parameter does)94 W
+9980 50386 MT
+(not have the specified value at all, or has)
+81 W( it with CF)
+80 W( <= .2)
+SH( ; if so, the value returned is 1.0 .)80 W
+9980 51529 MT
+(Note that)SH
+/Courier SF
+14316 XM
+(NOTSAME)SH
+/Helvetica SF
+18794 XM
+(returns ``true'' for a parameter whose value is ``unknown''.)SH
+/Symbol SF
+9242 53344 MT
+(\267)SH
+/Courier SF
+9980 XM
+(\050THOUGHTNOT CNTXT <parameter> <value>\051)186 W
+/Helvetica SF
+33802 XM
+(tests whether the specified parameter)186 W
+9980 54487 MT
+(has the specified value with CF)
+159 W( < -.2)
+SH( ; if)
+159 W( so, the value returned is the negative of the CF)158 W
+9980 55630 MT
+(value.)SH
+/Courier SF
+13313 XM
+(THOUGHTNOT)SH
+/Helvetica SF
+19646 XM
+(is the negative counterpart of)55 W
+/Courier SF
+33095 XM
+(SAME)SH
+/Helvetica SF
+(. A)
+388 W( Yes/No parameter is tested for)55 W
+9980 56773 MT
+(the value ``No'' with)56 W
+/Courier SF
+19040 XM
+(\050THOUGHTNOT CNTXT <parameter> YES\051)SH
+/Helvetica SF
+(.)SH
+/Courier SF
+40386 XM
+(THOUGHTNOT)SH
+/Helvetica SF
+46719 XM
+(requires a)55 W
+9980 57916 MT
+(negative value for the specific parameter; it will not respond to an ``unknown'' value.)SH
+/Symbol SF
+9242 59731 MT
+(\267)SH
+/Courier SF
+9980 XM
+(\050KNOWN CNTXT <parameter>\051)167 W
+/Helvetica SF
+25759 XM
+(tests whether the specified parameter has)
+167 W( a value with)168 W
+9980 60874 MT
+(CF > .2)
+SH( \050or, for yes/no parameters,)
+108 W( CF)
+107 W( < -.2\051;)
+SH( if so, the value returned is always 1.0, which)107 W
+9980 62017 MT
+(means that the CF of data tested using)SH
+/Courier SF
+27490 XM
+(KNOWN)SH
+/Helvetica SF
+30768 XM
+(will not affect the CF returned by)SH
+/Courier SF
+45441 XM
+($AND)SH
+/Helvetica SF
+(.)SH
+/Symbol SF
+9242 63832 MT
+(\267)SH
+/Courier SF
+9980 XM
+(\050NOTKNOWN CNTXT <parameter>\051)154 W
+/Helvetica SF
+27520 XM
+(tests whether the specified parameter has no value)154 W
+9980 64975 MT
+(with CF)
+181 W( > .2)
+SH( \050or, for yes/no parameters, CF)
+181 W( < -.2\051;)
+SH( if so, the value returned)
+181 W( is 1.0 .  This)180 W
+9980 66118 MT
+(predicate may be used to test for data that the user specifies as ``unknown''.)SH
+ES
+%%Page: 4 4 
+BS
+0 SI
+10 /Helvetica AF
+30322 4329 MT
+(4)SH
+11 /Helvetica-Bold AF
+7200 8002 MT
+(3.4. Numeric Tests)SH
+10 /Helvetica AF
+8312 9428 MT
+(In order to)
+19 W( perform numeric tests or other calculations with parameter values, it is first necessary to get)20 W
+7200 10854 MT
+(the numeric values of the parameters; this is done using the function)116 W
+/Courier SF
+39107 XM
+(VAL1)SH
+/Helvetica SF
+(.)SH
+/Courier SF
+42573 XM
+(VAL1)SH
+/Helvetica SF
+45367 XM
+(gets the)
+116 W( value of a)115 W
+7200 12280 MT
+(parameter which has the highest CF of all the possible values stored for that parameter.  The format is:)SH
+/Courier-Bold SF
+9600 14085 MT
+(\050VAL1 CNTXT <parameter>\051)SH
+/Helvetica SF
+7200 16797 MT
+(If the parameter has a numeric value,)135 W
+/Courier SF
+24986 XM
+(VAL1)SH
+/Helvetica SF
+27799 XM
+(will return that value,)
+135 W( which can then be used in numeric)136 W
+7200 18223 MT
+(calculations or in the numeric comparison functions described below.)SH
+8312 20790 MT
+(The numeric comparison functions provided with TMYCIN)
+48 W( are different from the plain Lisp comparison)47 W
+7200 22216 MT
+(functions in two respects: they are able to tolerate non-numeric arguments \050in which case they)
+152 W( return)153 W
+/Courier SF
+7200 23642 MT
+(NIL)SH
+/Helvetica SF
+(\051, and they return a value)
+166 W( of 1.0 if the test is ``true'' so that they can be used within)165 W
+/Courier SF
+48713 XM
+($AND)SH
+/Helvetica SF
+(. The)608 W
+7200 25068 MT
+(comparison functions are:)SH
+/Courier-Bold SF
+9600 26873 MT
+(\050greaterp* <numexp1> <numexp2>\051)SH
+9600 28004 MT
+(\050greateq* <numexp1>)
+600 W( <numexp2>\051)SH
+9600 29135 MT
+(\050lessp* <numexp1>)
+1800 W( <numexp2>\051)SH
+9600 30266 MT
+(\050lesseq* <numexp1>)
+1200 W( <numexp2>\051)SH
+9600 31397 MT
+(\050between* <numexp1>)
+600 W( <numexp2> <numexp3>\051)SH
+/Courier SF
+7200 34109 MT
+(BETWEEN*)SH
+/Helvetica SF
+12278 XM
+(tests whether)SH
+/Courier SF
+18503 XM
+(<numexp2> <= <numexp1> < <numexp3>)SH
+/Helvetica SF
+(.)SH
+12 /Helvetica-Bold AF
+7200 37864 MT
+(4. Input)SH
+10 /Helvetica AF
+8312 39290 MT
+(When TMYCIN asks for a parameter value during a consultation, there are several kinds of response)78 W
+7200 40716 MT
+(the user can give:)SH
+9424 42117 MT
+(1.)SH
+10536 XM
+(The user can simply enter a single data value, e.g.)16 W
+/Courier SF
+33318 XM
+(BLUE)SH
+/Helvetica SF
+(. The)
+310 W( resulting stored value will be)15 W
+10536 43260 MT
+(a list of that one)
+285 W( value with a certainty of 1.0, i.e.,)286 W
+/Courier SF
+35865 XM
+(\050\050BLUE 1.0\051\051)286 W
+/Helvetica SF
+(. For)
+850 W( a Yes/No)286 W
+10536 44403 MT
+(parameter, the user)
+22 W( may enter)21 W
+/Courier SF
+24371 XM
+(YES)SH
+/Helvetica SF
+(,)SH
+/Courier SF
+26748 XM
+(Y)SH
+/Helvetica SF
+(,)SH
+/Courier SF
+27925 XM
+(NO)SH
+/Helvetica SF
+(, or)21 W
+/Courier SF
+30890 XM
+(N)SH
+/Helvetica SF
+(;)SH
+/Courier SF
+32067 XM
+(NO)SH
+/Helvetica SF
+33566 XM
+(and)SH
+/Courier SF
+35533 XM
+(N)SH
+/Helvetica SF
+36432 XM
+(are converted to)21 W
+/Courier SF
+43999 XM
+(\050\050YES -1.0\051\051)21 W
+/Helvetica SF
+10536 45546 MT
+(.)SH
+9424 47361 MT
+(2.)SH
+10536 XM
+(The user can enter a list of a single)
+123 W( value and a certainty factor, e.g.,)124 W
+/Courier SF
+43015 XM
+(\050YES 0.6\051)SH
+/Helvetica SF
+(. The)526 W
+10536 48504 MT
+(resulting stored value will be a list of that one value, i.e.,)SH
+/Courier SF
+35548 XM
+(\050\050YES 0.6\051\051)SH
+/Helvetica SF
+(.)SH
+9424 50319 MT
+(3.)SH
+10536 XM
+(The user can enter a list of)
+848 W( multiple values and certainty factors, e.g.,)847 W
+/Courier SF
+10536 51462 MT
+(\050\050RED 0.5\051\050ORANGE 0.5\051\051)SH
+/Helvetica SF
+(. TMYCIN)
+385 W( does not enforce any kind of consistency among)54 W
+10536 52605 MT
+(certainty factors.  Therefore, a parameter that is thought of as multivalued may have)
+4 W( several)3 W
+10536 53748 MT
+(parameters with high certainty, e.g.,)SH
+/Courier SF
+26654 XM
+(\050\050RED 1.0\051 \050WHITE 1.0\051 \050BLUE 1.0\051\051)SH
+/Helvetica SF
+9424 55563 MT
+(4.)SH
+10536 XM
+(The user can enter)36 W
+/Courier SF
+19351 XM
+(UNK)SH
+/Helvetica SF
+21465 XM
+(or)SH
+/Courier SF
+22668 XM
+(UNKNOWN)SH
+/Helvetica SF
+27182 XM
+(if the value of the parameter is unknown.  This)
+36 W( results)37 W
+10536 56706 MT
+(in a ``dummy'' data set,)231 W
+/Courier SF
+22139 XM
+(\050\050UNKNOWN 0.0\051\051)SH
+/Helvetica SF
+31648 XM
+(. In)
+739 W( general, unknown values will not be)230 W
+10536 57849 MT
+(considered as ``true'' by the predicates that test data)
+17 W( values \050with the exception of)18 W
+/Courier SF
+47020 XM
+(NOTSAME)SH
+/Helvetica SF
+10536 58992 MT
+(and)SH
+/Courier SF
+12482 XM
+(NOTKNOWN)SH
+/Helvetica SF
+(\051, so that most rules involving unknown data will not fire.)SH
+9424 60807 MT
+(5.)SH
+10536 XM
+(The user can enter)255 W
+/Courier SF
+20227 XM
+(?)SH
+/Helvetica SF
+(. The)
+787 W( system will respond by printing the prompt string for the)254 W
+10536 61950 MT
+(parameter \050if there is one\051 and the type)
+68 W( specified for the parameter.  Then the user will be)69 W
+10536 63093 MT
+(asked for the parameter value again.  Note that with)175 W
+/Courier SF
+35520 XM
+(*printdes*)SH
+/Helvetica SF
+41973 XM
+(set to)175 W
+/Courier SF
+45046 XM
+(T)SH
+/Helvetica SF
+(, the default)174 W
+10536 64236 MT
+(value, this)
+454 W( information is printed automatically; the)455 W
+/Courier SF
+36118 XM
+(?)SH
+/Helvetica SF
+37451 XM
+(input is mainly useful when)455 W
+/Courier SF
+10536 65379 MT
+(*printdes*)SH
+/Helvetica SF
+16814 XM
+(is set to)SH
+/Courier SF
+20538 XM
+(NIL)SH
+/Helvetica SF
+(.)SH
+9424 67194 MT
+(6.)SH
+10536 XM
+(The user can enter)22 W
+/Courier SF
+19295 XM
+(WHY)SH
+/Helvetica SF
+(. The)
+322 W( system will respond by printing)
+22 W( the rule that is currently being)21 W
+10536 68337 MT
+(examined, then ask for the parameter value again.)SH
+ES
+%%Page: 5 5 
+BS
+0 SI
+10 /Helvetica AF
+30322 4329 MT
+(5)SH
+11 /Helvetica-Bold AF
+7200 8002 MT
+(4.1. Input Options)SH
+10 /Helvetica AF
+8312 9428 MT
+(The global variable)171 W
+/Courier SF
+17551 XM
+(*printdes*)SH
+/Helvetica SF
+24000 XM
+(determines whether the data type and)
+171 W( prompt information will be)172 W
+7200 10854 MT
+(shown to the user automatically when asking for input.  The default value of)SH
+/Courier SF
+40828 XM
+(*printdes*)SH
+/Helvetica SF
+47106 XM
+(is)SH
+/Courier SF
+48106 XM
+(T)SH
+/Helvetica SF
+(.)SH
+8312 13421 MT
+(If desired, the user may)
+81 W( define a function to obtain input, either from the user or from another source)80 W
+7200 14847 MT
+(\050e.g., a database)
+156 W( or special I/O device\051.  If the parameter name has the property)157 W
+/Courier SF
+45182 XM
+(ASKFN)SH
+/Helvetica SF
+48617 XM
+(defined, the)157 W
+7200 16273 MT
+(function specified for the)108 W
+/Courier SF
+18749 XM
+(ASKFN)SH
+/Helvetica SF
+22135 XM
+(property will be called to obtain the value; its parameters are the)
+108 W( data)107 W
+7200 17699 MT
+(context and the parameter name.  The)281 W
+/Courier SF
+26454 XM
+(ASKFN)SH
+/Helvetica SF
+30013 XM
+(should return a list of)281 W
+/Courier SF
+40979 XM
+(\050<value> <cf>\051)SH
+/Helvetica SF
+49939 XM
+(pairs, as)282 W
+7200 19125 MT
+(described above.  For example,)
+169 W( if an)168 W
+/Courier SF
+24832 XM
+(ASKFN)SH
+/Helvetica SF
+28278 XM
+(reads a)168 W
+/Courier SF
+32227 XM
+(VOLTAGE)SH
+/Helvetica SF
+36873 XM
+(of 4.6 volts from an A/D converter, it)168 W
+7200 20551 MT
+(should return)SH
+/Courier SF
+13314 XM
+(\050\0504.6 1.0\051\051)SH
+/Helvetica SF
+20192 XM
+(.)SH
+/Courier-Bold SF
+9600 22356 MT
+(; Specify the `ask' function for voltage)SH
+9600 23487 MT
+(\050setf \050get 'voltage 'askfn\051 #'readvoltage\051)SH
+9600 25749 MT
+(; Simulate reading of voltage: 4 volts + 0-1 volts noise)SH
+9600 26880 MT
+(\050defun readvoltage \050cntxt parm\051)SH
+10800 28011 MT
+(\050list \050list \050+ 4.0 \050random 1.0\051\051 1.0\051\051 \051)SH
+/Helvetica SF
+8312 31709 MT
+(In some cases, it may be desirable to ask the user for a value before trying to infer a parameter)
+50 W( value)51 W
+7200 33135 MT
+(using rules.  For example, the)222 W
+/Courier SF
+21982 XM
+(TEMPERATURE)SH
+/Helvetica SF
+29082 XM
+(of a patient will usually be known.  If the)222 W
+/Courier SF
+49200 XM
+(ASKFIRST)SH
+/Helvetica SF
+7200 34561 MT
+(property is defined with a non-)89 W
+/Courier SF
+(NIL)SH
+/Helvetica SF
+23207 XM
+(value for a)
+89 W( parameter name, then the user will be asked for a value)90 W
+7200 35987 MT
+(before rules to infer the parameter are tried.)SH
+/Courier-Bold SF
+9600 37792 MT
+(\050setf \050get 'temperature 'askfirst\051 t\051)SH
+12 /Helvetica-Bold AF
+7200 42678 MT
+(5. Escaping to Lisp)SH
+10 /Helvetica AF
+8312 44104 MT
+(An important feature of an expert system tool is the ability to escape from it into the)
+242 W( underlying)241 W
+7200 45530 MT
+(programming language to perform computations that are not)
+214 W( easily supported by the tool.  TMYCIN)215 W
+7200 46956 MT
+(provides several places at which an expert system application can escape into Lisp.)SH
+11 /Helvetica-Bold AF
+7200 50638 MT
+(5.1. Special Input Functions)SH
+10 /Helvetica AF
+8312 52064 MT
+(As mentioned above, it is possible to put a function name on)
+53 W( the property list of a parameter name as)52 W
+7200 53490 MT
+(the value of the)131 W
+/Courier SF
+14840 XM
+(ASKFN)SH
+/Helvetica SF
+18249 XM
+(property. This)
+540 W( will cause that function to be called for input of that parameter)132 W
+7200 54916 MT
+(rather than asking the user for the value.  This allows some or all of the input data)
+106 W( used by the expert)105 W
+7200 56342 MT
+(system to be gotten from)
+215 W( other sources, such as databases, data files, or special input devices.  If)216 W
+7200 57768 MT
+(desired, the parameters could also be specified as)95 W
+/Courier SF
+30526 XM
+(ASKFIRST)SH
+/Helvetica SF
+35699 XM
+(parameters so that data will be obtained)95 W
+7200 59194 MT
+(for them before the consultation begins.)SH
+11 /Helvetica-Bold AF
+7200 62876 MT
+(5.2. Functions in Rule Premises)SH
+10 /Helvetica AF
+8312 64302 MT
+(A call to an arbitrary function can be included in the premise of a rule.)
+87 W( Such)
+453 W( a function may use the)88 W
+7200 65728 MT
+(global variable)59 W
+/Courier SF
+14043 XM
+(CNTXT)SH
+/Helvetica SF
+17380 XM
+(to refer to the current data context.)
+59 W( The)
+395 W( function should return a value which is a)58 W
+7200 67154 MT
+(certainty factor \050a number from -1.0 to 1.0\051, or)159 W
+/Courier SF
+29139 XM
+(NIL)SH
+/Helvetica SF
+31376 XM
+(to indicate failure.  Consult the existing)
+159 W( predicate)160 W
+7200 68580 MT
+(functions for examples.  If no value)
+180 W( is known for a parameter and the global variable)179 W
+/Courier SF
+47421 XM
+(*prescan*)SH
+/Helvetica SF
+53278 XM
+(is)SH
+7200 70006 MT
+(non-)SH
+/Courier SF
+(NIL)SH
+/Helvetica SF
+(, the value)SH
+/Courier SF
+15893 XM
+(1.0)SH
+/Helvetica SF
+17971 XM
+(should be returned.)SH
+ES
+%%Page: 6 6 
+BS
+0 SI
+10 /Helvetica AF
+30322 4329 MT
+(6)SH
+11 /Helvetica-Bold AF
+7200 8002 MT
+(5.3. Calculations in Rule Conclusions)SH
+10 /Helvetica AF
+8312 9428 MT
+(If the)SH
+/Courier SF
+10814 XM
+(<value>)SH
+/Helvetica SF
+15292 XM
+(part of a)SH
+/Courier SF
+19239 XM
+(CONCLUDE)SH
+/Helvetica SF
+24317 XM
+(call is a single atom \050symbol\051, it is treated as if it were quoted:)SH
+/Courier-Bold SF
+9600 11233 MT
+(\050conclude cntxt identity coal tally 400\051)SH
+/Helvetica SF
+7200 12814 MT
+(In this case,)101 W
+/Courier SF
+13117 XM
+(coal)SH
+/Helvetica SF
+15896 XM
+(is treated as a quoted value.  However, if the)101 W
+/Courier SF
+36972 XM
+(<value>)SH
+/Helvetica SF
+41551 XM
+(is a)
+101 W( list, it is evaluated; this)102 W
+7200 14240 MT
+(allows calculations to be performed)
+3 W( in the conclusion part of a rule.  The function)2 W
+/Courier SF
+43084 XM
+(VAL1)SH
+/Helvetica SF
+45764 XM
+(can be used to get)2 W
+7200 15666 MT
+(parameter values.)SH
+/Courier-Bold SF
+9600 17471 MT
+(\050rule107 \050$and \050same cntxt shape circle\051)SH
+18600 18602 MT
+(\050known cntxt radius\051\051)SH
+15000 19733 MT
+(\050conclude cntxt area)SH
+21000 20864 MT
+(\050* 3.14159)SH
+22800 21995 MT
+(\050expt \050val1 cntxt radius\051 2\051\051)SH
+21000 23126 MT
+(tally 1000\051\051)SH
+11 /Helvetica-Bold AF
+7200 26808 MT
+(5.4. Calculations in Rule Certainty Factors)SH
+10 /Helvetica AF
+8312 28234 MT
+(In some cases, it is desirable)
+19 W( to use data values in calculating certainty factors.  For example, suppose)20 W
+7200 29660 MT
+(that a physician expert specifies that lung cancer is ruled out for patients less than 20 years old, and is)
+25 W( to)24 W
+7200 31086 MT
+(be linearly weighted negatively for patients from 20 to 30 years old.)SH
+/Courier-Bold SF
+9600 32891 MT
+(\050rule112 \050lesseq* \050val1 cntxt age\051 30\051)SH
+15000 34022 MT
+(\050conclude cntxt diagnosis lung-cancer)SH
+21000 35153 MT
+(tally \050if \050< \050val1 cntxt age\051 20\051)SH
+27000 36284 MT
+(-1000)SH
+27000 37415 MT
+(\050* \050- 30 \050val1 cntxt age\051\051)SH
+28800 38546 MT
+(-100\051\051\051 \051)SH
+11 /Helvetica-Bold AF
+7200 42228 MT
+(5.5. Calling Functions From Conclusion)SH
+10 /Helvetica AF
+8312 43654 MT
+(It is sometimes useful to call user functions in the conclusion part of a rule.)
+97 W( The)
+474 W( function)98 W
+/Courier SF
+49302 XM
+(DO-ALL)SH
+/Helvetica SF
+53278 XM
+(is)SH
+7200 45080 MT
+(used to perform multiple actions in the conclusion part of a rule.  By putting both)
+52 W( a)51 W
+/Courier SF
+44489 XM
+(CONCLUDE)SH
+/Helvetica SF
+49618 XM
+(call and a)51 W
+7200 46506 MT
+(call to a user function within)
+13 W( the)14 W
+/Courier SF
+21522 XM
+(DO-ALL)SH
+/Helvetica SF
+(, the user function can be called when the rule fires.  At least one)14 W
+/Courier SF
+7200 47932 MT
+(CONCLUDE)SH
+/Helvetica SF
+12319 XM
+(call is needed in order to)
+41 W( cause the rule to be considered during backchaining; the parameter)40 W
+7200 49358 MT
+(that is)51 W
+/Courier SF
+10248 XM
+(CONCLUDE)SH
+/Helvetica SF
+(d should either be a)
+51 W( goal parameter or one that will be traced in seeking the value of a)52 W
+7200 50784 MT
+(goal parameter.)SH
+/Courier-Bold SF
+9600 52589 MT
+(\050rule109 \050$and \050same cntxt smoke yes\051)SH
+18600 53720 MT
+(\050same cntxt heat yes\051\051)SH
+15000 54851 MT
+(\050do-all \050conclude cntxt problem fire tally 800\051)SH
+19800 55982 MT
+(\050sound-fire-alarm-fn\051\051\051)SH
+12 /Helvetica-Bold AF
+7200 59737 MT
+(6. Notes on Using TMYCIN)SH
+11 SS 
+7200 63419 MT
+(6.1. Deleting Rules)SH
+10 /Helvetica AF
+8312 64845 MT
+(In most cases, when a rule is edited and defined again using)315 W
+/Courier SF
+39162 XM
+(DEFRULES)SH
+/Helvetica SF
+(, no further action is)314 W
+7200 66271 MT
+(necessary. However,)
+902 W( if the rule)
+312 W( conclusion is changed so that it no longer concludes the same)313 W
+7200 67697 MT
+(parameter, or if the rule is to be deleted entirely, special action is necessary.  The reason for this is that)64 W
+7200 69123 MT
+(rules are indexed so that each parameter has a list of the rules that conclude it; if a rule is)
+7 W( to be deleted, it)8 W
+7200 70549 MT
+(must be removed from this list.)SH
+ES
+%%Page: 7 7 
+BS
+0 SI
+10 /Helvetica AF
+30322 4329 MT
+(7)SH
+8 SS 
+20312 7783 MT
+(1)SH
+10 /Courier AF
+8312 8134 MT
+(\050delrule <rulename>\051)SH
+/Helvetica SF
+21035 XM
+(will delete the single rule)SH
+/Courier SF
+32206 XM
+(<rulename>)SH
+/Helvetica SF
+(.)SH
+/Courier SF
+8312 10701 MT
+(\050clear-rules\051)SH
+/Helvetica SF
+16390 XM
+(will delete all rules.)SH
+11 /Helvetica-Bold AF
+7200 14383 MT
+(6.2. Self-Referencing Rules)SH
+10 /Helvetica AF
+8312 15809 MT
+(Sometimes rules are written that)
+116 W( reference the same parameter in both the premise and conclusion;)115 W
+7200 17235 MT
+(these might be used, for example, to increase the certainty of)
+114 W( a parameter that is already concluded if)115 W
+7200 18661 MT
+(additional factors are present.  In order to run such rules correctly, all other)
+203 W( rules that conclude the)202 W
+7200 20087 MT
+(parameter must run first.  To make this happen,)
+55 W( all self-referencing rules should be put at the)56 W
+/Helvetica-Oblique SF
+49440 XM
+(end)SH
+/Helvetica SF
+51442 XM
+(of the)56 W
+7200 21513 MT
+(file of rules; this will make them run last in the ordering used by TMYCIN.)SH
+/Courier-Bold SF
+9600 23318 MT
+(\050rule119 \050$and \050same cntxt identity rattlesnake\051)SH
+18600 24449 MT
+(\050same cntxt bit-someone yes\051)SH
+18600 25580 MT
+(\050same cntxt victim-died yes\051\051)SH
+15000 26711 MT
+(\050conclude cntxt identity rattlesnake tally 800\051\051)SH
+12 /Helvetica-Bold AF
+7200 30466 MT
+(7. Useful Functions)SH
+11 SS 
+7200 34148 MT
+(7.1. Starting the Consultation)SH
+10 /Courier AF
+8312 35574 MT
+(DOCONSULT)SH
+/Helvetica SF
+13990 XM
+(is used to start a new consultation; its optional parameter is a context class name.)SH
+/Courier-Bold SF
+9600 37379 MT
+(\050doconsult\051)SH
+9600 39641 MT
+(\050doconsult 'rock\051)SH
+11 /Helvetica-Bold AF
+7200 44454 MT
+(7.2. Why Questions)SH
+10 /Helvetica AF
+8312 45880 MT
+(Two functions,)20 W
+/Courier SF
+15076 XM
+(WHY)SH
+/Helvetica SF
+17173 XM
+(and)SH
+/Courier SF
+19138 XM
+(WHYNOT)SH
+/Helvetica SF
+(, are provided to allow the user to ask about the system's reasoning at)19 W
+7200 47306 MT
+(the end of a consultation.)75 W
+/Courier SF
+19380 XM
+(WHY)SH
+/Helvetica SF
+21533 XM
+(will print)
+75 W( out the rule\050s\051 that concluded values for a parameter.)76 W
+/Courier SF
+50400 XM
+(WHYNOT)SH
+/Helvetica SF
+7200 48732 MT
+(asks why a particular conclusion was)43 W
+/Helvetica-Oblique SF
+24130 XM
+(not)SH
+/Helvetica SF
+25841 XM
+(reached. It)
+364 W( prints rule\050s\051)
+43 W( that might have reached the specified)42 W
+7200 50158 MT
+(conclusion along with the failing condition that prevented each rule from firing.)SH
+8312 52725 MT
+(Both functions allow omission of parameters for convenience.  The full set of parameters is:)SH
+/Courier-Bold SF
+9600 54530 MT
+(\050why <context>)
+1800 W( <parameter> <value>\051)SH
+9600 56792 MT
+(\050whynot <context> <parameter> <value>\051)SH
+/Helvetica SF
+7200 59504 MT
+(It is permissible to omit the first parameter, the first two, or all three \050in the)
+14 W( case of the)15 W
+/Courier SF
+45485 XM
+(WHY)SH
+/Helvetica SF
+47578 XM
+(function\051. The)308 W
+/Courier SF
+7200 60930 MT
+(<context>)SH
+/Helvetica SF
+12901 XM
+(defaults to the context for the most)
+23 W( recently run consultation.  The)22 W
+/Courier SF
+42464 XM
+(<parameter>)SH
+/Helvetica SF
+49364 XM
+(defaults to)22 W
+7200 62356 MT
+(the first parameter in the)41 W
+/Courier SF
+18521 XM
+(GOALS)SH
+/Helvetica SF
+21840 XM
+(list. The)360 W
+/Courier SF
+26021 XM
+(<value>)SH
+/Helvetica SF
+30541 XM
+(defaults to the most strongly concluded value for the)42 W
+/Courier SF
+7200 63782 MT
+(<parameter>)SH
+/Helvetica SF
+(. Example)
+278 W( calls are:)SH
+10800 50 7200 70292 UL
+6 SS 
+8090 71687 MT
+(1)SH
+8 SS 
+8424 72000 MT
+(These functions were written by Hiow-Tong Jason See.)SH
+ES
+%%Page: 8 8 
+BS
+0 SI
+10 /Helvetica AF
+30322 4329 MT
+(8)SH
+/Courier-Bold SF
+9600 7874 MT
+(\050why\051)SH
+9600 9005 MT
+(\050why obsidian\051)SH
+9600 10136 MT
+(\050why identity obsidian\051)SH
+9600 11267 MT
+(\050why rock37 identity obsidian\051)SH
+9600 13529 MT
+(\050whynot coal\051)SH
+9600 14660 MT
+(\050whynot identity coal\051)SH
+9600 15791 MT
+(\050whynot rock37 identity coal\051)SH
+11 /Helvetica-Bold AF
+7200 20604 MT
+(7.3. Translation of Rules into English)SH
+10 /Helvetica AF
+8312 22030 MT
+(The function)14 W
+/Courier SF
+14121 XM
+(ENGLRULE)SH
+/Helvetica SF
+19213 XM
+(translates a previously defined rule into an)
+14 W( English-like format.  Its argument is)13 W
+7200 23456 MT
+(a quoted rule name:)SH
+/Courier-Bold SF
+9600 25261 MT
+(\050englrule 'rule101\051)SH
+/Helvetica SF
+7200 27973 MT
+(produces:)SH
+/Courier-Bold SF
+9600 29778 MT
+(If:)SH
+13200 30909 MT
+(1\051 the COLOR of the ROCK is BLACK, and)SH
+13200 32040 MT
+(2\051 PRETTY is not true of the ROCK, and)SH
+13200 33171 MT
+(3\051 1\051)
+1200 W( the HARDNESS of the ROCK is 4, or)SH
+16200 34302 MT
+(2\051 the ENVIRONMENT of the ROCK is SEDIMENTARY)SH
+9600 35433 MT
+(then:)SH
+13200 36564 MT
+(there is weakly suggestive evidence \0500.4\051)SH
+13200 37695 MT
+(that the IDENTITY of the ROCK is COAL)SH
+11 /Helvetica-Bold AF
+7200 41377 MT
+(7.4. Analysis of the Knowledge Base)SH
+10 /Courier AF
+8312 42803 MT
+(SHOWRULE)SH
+/Helvetica SF
+13390 XM
+(will pretty-print a rule in internal \050Lisp\051 form.)SH
+/Courier-Bold SF
+9600 44608 MT
+(\050showrule 'rule101\051)SH
+8 /Helvetica AF
+13712 47955 MT
+(2)SH
+10 /Courier AF
+8312 48306 MT
+(LISTPARMS)SH
+/Helvetica SF
+14464 XM
+(will print out the parameters defined for the current context class \050gotten from)
+29 W( the current)30 W
+7200 49732 MT
+(value of)SH
+/Courier SF
+10980 XM
+(CNTXTNAME)SH
+/Helvetica SF
+16658 XM
+(, which will be set to the context name used in the last call to)SH
+/Courier SF
+43671 XM
+(DEFCONTEXT)SH
+/Helvetica SF
+(\051.)SH
+/Courier SF
+8312 52299 MT
+(LISTRULES)SH
+/Helvetica SF
+13990 XM
+(will list all the rules, in both English and internal forms.)SH
+/Courier SF
+8312 54866 MT
+(ANALYZE-KB)SH
+/Helvetica SF
+14590 XM
+(will analyze the knowledge base, listing the rules that can conclude each parameter.)SH
+/Courier SF
+8312 57433 MT
+(LISTKB)SH
+/Helvetica SF
+12195 XM
+(will print)
+5 W( a complete listing of the knowledge base, i.e., it does)4 W
+/Courier SF
+39812 XM
+(ANALYZE-KB)SH
+/Helvetica SF
+(,)SH
+/Courier SF
+46372 XM
+(LISTPARMS)SH
+/Helvetica SF
+(, and)4 W
+/Courier SF
+7200 58859 MT
+(LISTRULES)SH
+/Helvetica SF
+(.)SH
+11 /Helvetica-Bold AF
+7200 62541 MT
+(7.5. Other Useful Functions)SH
+10 /Courier AF
+8312 63967 MT
+(SHOWPROPS)SH
+/Helvetica SF
+14068 XM
+(will pretty-print the property list of an atom, which is useful for looking at the data)
+78 W( values)79 W
+7200 65393 MT
+(stored for a particular consultation:)SH
+10800 50 7200 70292 UL
+6 SS 
+8090 71687 MT
+(2)SH
+8 SS 
+8424 72000 MT
+(These functions were written by Hiow-Tong Jason See.)SH
+ES
+%%Page: 9 9 
+BS
+0 SI
+10 /Helvetica AF
+30322 4329 MT
+(9)SH
+/Courier-Bold SF
+9600 7874 MT
+(\050showprops 'rock37\051)SH
+12 /Helvetica-Bold AF
+7200 12760 MT
+(8. How TMYCIN Works)SH
+10 /Helvetica AF
+8312 14186 MT
+(The basic operation)
+234 W( of TMYCIN is very simple.  The function)233 W
+/Courier SF
+37831 XM
+(doconsult)SH
+/Helvetica SF
+(, which is the top-level)233 W
+7200 15612 MT
+(function that performs a consultation, first makes a)
+49 W( new symbol from the context name \050e.g.,)50 W
+/Courier SF
+48905 XM
+(ROCK37)SH
+/Helvetica SF
+(\051 to)50 W
+7200 17038 MT
+(be the context for the consultation.  Next, it asks the user)
+53 W( for values of the parameters that are specified)52 W
+7200 18464 MT
+(as initial-data parameters in the)
+87 W( context definition.  Then it calls)88 W
+/Courier SF
+36343 XM
+(bc-goal)SH
+/Helvetica SF
+40909 XM
+(to find values for each of the)88 W
+7200 19890 MT
+(goal parameters.  Finally, it prints the results.)SH
+8312 22457 MT
+(The basic function to find values for a parameter \050called)33 W
+/Helvetica-Oblique SF
+33542 XM
+(tracing)SH
+/Helvetica SF
+36854 XM
+(the parameter\051 is)33 W
+/Courier SF
+44789 XM
+(bc-goal)SH
+/Helvetica SF
+(, so named)32 W
+7200 23883 MT
+(because it)23 W
+/Helvetica-Oblique SF
+12082 XM
+(backchains)SH
+/Helvetica SF
+17385 XM
+(on rules to try to find values for its)
+23 W( goal parameter.)24 W
+/Courier SF
+40453 XM
+(bc-goal)SH
+/Helvetica SF
+44955 XM
+(finds the set of rules)24 W
+7200 25309 MT
+(that could conclude some value for the desired parameter and runs each of them; if there are no)
+41 W( rules to)40 W
+7200 26735 MT
+(conclude the value of a)
+160 W( parameter, it asks the user for the value.  The rules that can conclude each)161 W
+7200 28161 MT
+(parameter are)
+53 W( stored on the property list of the parameter under the property)52 W
+/Courier SF
+42060 XM
+(RULES)SH
+/Helvetica SF
+(; this cross-indexing)52 W
+7200 29587 MT
+(is done by)153 W
+/Courier SF
+12495 XM
+(DEFRULES)SH
+/Helvetica SF
+17726 XM
+(when the rules are defined.  For example,)153 W
+/Courier SF
+37681 XM
+(RULE101)SH
+/Helvetica SF
+(, which concludes that)
+153 W( the)154 W
+7200 31013 MT
+(identity of a rock is coal, is stored as one of the rules under the property)13 W
+/Courier SF
+39368 XM
+(RULES)SH
+/Helvetica SF
+42659 XM
+(of the symbol)13 W
+/Courier SF
+48922 XM
+(IDENTITY)SH
+/Helvetica SF
+(.)SH
+7200 32439 MT
+(Note that while)99 W
+/Courier SF
+14389 XM
+(bc-goal)SH
+/Helvetica SF
+18966 XM
+(will often be called)
+99 W( by a predicate seeking a particular value for a parameter,)100 W
+7200 33865 MT
+(e.g.)SH
+/Courier SF
+9217 XM
+(\050SAME CNTXT COLOR WHITE\051)SH
+/Helvetica SF
+(, it will)
+71 W( try to run all rules that conclude)70 W
+/Helvetica-Oblique SF
+41492 XM
+(any)SH
+/Helvetica SF
+43452 XM
+(value for the parameter)70 W
+7200 35291 MT
+(\050in this case,)SH
+/Courier SF
+13091 XM
+(COLOR)SH
+/Helvetica SF
+(\051 before it quits.)SH
+8312 37858 MT
+(Running a rule is done in two stages.)
+105 W( First,)
+490 W( the antecedent \050left-hand side or ``if'' part\051 of the rule is)106 W
+7200 39284 MT
+(evaluated; if it has a ``true'' value, i.e., a CF greater than 0.2, the consequent \050``then'' part\051 of the rule is)75 W
+7200 40710 MT
+(executed. Evaluating)
+278 W( the antecedent will typically involve tests of parameter values using predicates)
+SH( such)1 W
+7200 42136 MT
+(as)SH
+/Courier SF
+8693 XM
+(SAME)SH
+/Helvetica SF
+(; these predicates call the function)159 W
+/Courier SF
+27444 XM
+(parmget)SH
+/Helvetica SF
+32081 XM
+(to get the)
+159 W( value\050s\051 of the parameter.)158 W
+/Courier SF
+49800 XM
+(parmget)SH
+/Helvetica SF
+7200 43562 MT
+(returns an existing value if there is one; otherwise, it calls)203 W
+/Courier SF
+34999 XM
+(bc-goal)SH
+/Helvetica SF
+39680 XM
+(to find the value.)
+203 W( In)
+685 W( this way,)204 W
+/Courier SF
+7200 44988 MT
+(bc-goal)SH
+/Helvetica SF
+11708 XM
+(does a)
+30 W( depth-first search of the rule tree, where the root\050s\051 of the tree are goal parameters and)29 W
+7200 46414 MT
+(the terminal nodes of the tree are parameter values provided by the user as input.)SH
+12 /Helvetica-Bold AF
+7200 50169 MT
+(9. References)SH
+10 /Helvetica AF
+7200 52041 MT
+([1])SH
+10536 XM
+(Van Melle, W., Scott, A. C., Bennett, J. S., Peairs, M.)SH
+/Helvetica-Oblique SF
+10536 53184 MT
+(The Emycin Manual)SH
+/Helvetica SF
+(.)SH
+10536 54327 MT
+(Technical Report STAN-CS-81-885, Computer Science Dept., Stanford University, Oct, 1981.)SH
+7200 56199 MT
+([2])SH
+10536 XM
+(Shortliffe, E.H.)SH
+/Helvetica-Oblique SF
+10536 57342 MT
+(Computer Based Medical Consultations: MYCIN.)SH
+/Helvetica SF
+10536 58485 MT
+(American Elsevier, 1976.)SH
+ES
+%%Page: 26 10 
+BS
+0 SI
+10 /Helvetica AF
+30044 4329 MT
+(10)SH
+12 /Helvetica-Bold AF
+7200 8075 MT
+(I. Listing of TMYCIN Code)SH
+ES
+%%Page: 27 11 
+BS
+0 SI
+10 /Helvetica AF
+30044 4329 MT
+(27)SH
+12 /Helvetica-Bold AF
+7200 8075 MT
+(II. TMYCIN Test File: Rocks)SH
+ES
+%%Page: i 12 
+BS
+0 SI
+10 /Helvetica AF
+30489 4329 MT
+(i)SH
+12 /Helvetica-Bold AF
+25533 8075 MT
+(Table of Contents)SH
+11 SS 
+9036 9319 MT
+(1. Introduction)SH
+53388 XM
+(1)SH
+9036 10563 MT
+(2. Data)SH
+53388 XM
+(1)SH
+10 SS 
+11092 11712 MT
+(2.1. Context Description)SH
+53444 XM
+(1)SH
+11092 12861 MT
+(2.2. Internal Data Storage)SH
+53444 XM
+(2)SH
+11 SS 
+9036 14105 MT
+(3. Rules)SH
+53388 XM
+(2)SH
+10 SS 
+11092 15254 MT
+(3.1. Rule Format)SH
+53444 XM
+(2)SH
+11092 16403 MT
+(3.2. $AND and $OR)SH
+53444 XM
+(3)SH
+11092 17552 MT
+(3.3. Testing Data Values)SH
+53444 XM
+(3)SH
+11092 18701 MT
+(3.4. Numeric Tests)SH
+53444 XM
+(4)SH
+11 SS 
+9036 19945 MT
+(4. Input)SH
+53388 XM
+(4)SH
+10 SS 
+11092 21094 MT
+(4.1. Input Options)SH
+53444 XM
+(5)SH
+11 SS 
+9036 22338 MT
+(5. Escaping to Lisp)SH
+53388 XM
+(5)SH
+10 SS 
+11092 23487 MT
+(5.1. Special Input Functions)SH
+53444 XM
+(5)SH
+11092 24636 MT
+(5.2. Functions in Rule Premises)SH
+53444 XM
+(5)SH
+11092 25785 MT
+(5.3. Calculations in Rule Conclusions)SH
+53444 XM
+(6)SH
+11092 26934 MT
+(5.4. Calculations in Rule Certainty Factors)SH
+53444 XM
+(6)SH
+11092 28083 MT
+(5.5. Calling Functions From Conclusion)SH
+53444 XM
+(6)SH
+11 SS 
+9036 29327 MT
+(6. Notes on Using TMYCIN)SH
+53388 XM
+(6)SH
+10 SS 
+11092 30476 MT
+(6.1. Deleting Rules)SH
+53444 XM
+(6)SH
+11092 31625 MT
+(6.2. Self-Referencing Rules)SH
+53444 XM
+(7)SH
+11 SS 
+9036 32869 MT
+(7. Useful Functions)SH
+53388 XM
+(7)SH
+10 SS 
+11092 34018 MT
+(7.1. Starting the Consultation)SH
+53444 XM
+(7)SH
+11092 35167 MT
+(7.2. Why Questions)SH
+53444 XM
+(7)SH
+11092 36316 MT
+(7.3. Translation of Rules into English)SH
+53444 XM
+(8)SH
+11092 37465 MT
+(7.4. Analysis of the Knowledge Base)SH
+53444 XM
+(8)SH
+11092 38614 MT
+(7.5. Other Useful Functions)SH
+53444 XM
+(8)SH
+11 SS 
+9036 39858 MT
+(8. How TMYCIN Works)SH
+53388 XM
+(9)SH
+9036 41102 MT
+(9. References)SH
+53388 XM
+(9)SH
+9036 42346 MT
+(I. Listing of TMYCIN Code)SH
+52776 XM
+(26)SH
+9036 43590 MT
+(II. TMYCIN Test File: Rocks)SH
+52776 XM
+(27)SH
+ES
+%%Trailer
+%%Pages: 12 
+%%DocumentFonts: Helvetica Helvetica-Bold Helvetica-Oblique Courier Courier-Bold Symbol
